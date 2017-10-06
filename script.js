@@ -3,37 +3,26 @@ function updateBalance() {
 }
 
 function deposit(value) {
-    if (value == 10) {
-        store.dispatch(actionDeposit10)
-    } else if (value == 1) {
-        store.dispatch(actionDeposit1)
-    }
+    store.dispatch(actionDeposit(value))
 }
 
 function withdraw(value) {
-    if (value == 10) {
-        store.dispatch(actionWithdraw10)
-    } else if (value == 1) {
-        store.dispatch(actionWithdraw1)
+    store.dispatch(actionWithdraw(value))
+}
+
+// Action creators
+function actionDeposit(amount) {
+    return {
+        type: 'DEPOSIT',
+        amount: amount
     }
 }
 
-// Actions
-const actionDeposit1 = {
-    type: 'DEPOSIT',
-    amount: 1
-}
-const actionDeposit10 = {
-    type: 'DEPOSIT',
-    amount: 10
-}
-const actionWithdraw1 = {
-    type: 'WITHDRAW',
-    amount: 1
-}
-const actionWithdraw10 = {
-    type: 'WITHDRAW',
-    amount: 10
+function actionWithdraw(amount) {
+    return {
+        type: 'WITHDRAW',
+        amount: amount
+    }
 }
 
 // Reducer
