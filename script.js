@@ -1,17 +1,17 @@
-let balance = 0
+let state = {balance: 0}
 
 function updateBalance() {
-    document.getElementById('balance').innerHTML = '$' + balance
+    document.getElementById('balance').innerHTML = '$' + state.balance
 }
 
 function deposit(value) {
-    balance += value
+    state.balance += value
     updateBalance()
 }
 
 function withdraw(value) {
-    if (balance >= value) {
-        balance -= value
+    if (state.balance >= value) {
+        state.balance -= value
     }
     updateBalance()
 }
